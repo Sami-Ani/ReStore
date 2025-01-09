@@ -12,9 +12,10 @@ builder.Services.AddDbContext<StoreContext>(opt =>
 {
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddCors();
 
 // Add logging service
-builder.Services.AddLogging();
+// builder.Services.AddLogging();
 
 var app = builder.Build();
 
@@ -24,6 +25,11 @@ if (app.Environment.IsDevelopment())
 {
     // You can add your development-specific middleware here
 }
+
+app.UseCors(opt => 
+{
+    opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+});
 
 app.UseAuthorization();
 app.MapControllers();
