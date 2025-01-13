@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 //  it can expect a list of products
 // and a no arg and no returning function
 
-export function Catalog() {
+export default function Catalog() {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {

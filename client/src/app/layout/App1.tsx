@@ -4,11 +4,10 @@ import {
   CssBaseline,
   ThemeProvider,
 } from "@mui/material";
-import { useState } from "react";
-import { Outlet } from "react-router";
 import Header from "./Header";
-
-export default function App() {
+import { useState } from "react";
+import { Outlet } from "@mui/icons-material";
+function App() {
   const [darkMode, setDarkMode] = useState(false);
   const darkModeController = () => {
     setDarkMode(!darkMode);
@@ -23,16 +22,16 @@ export default function App() {
       },
     },
   });
-
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Header darkMode={darkMode} setDarkMode={darkModeController} />
-        <Container>
-          <Outlet />
-        </Container>
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Header darkMode={darkMode} setDarkMode={darkModeController} />
+      <Container>
+        Love is not l\
+        <Outlet />
+      </Container>
+    </ThemeProvider>
   );
 }
+
+export default App;
